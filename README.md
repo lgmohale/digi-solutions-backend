@@ -21,7 +21,7 @@ install npm packages: npm install
 #s etup database
 
 create database and give it a name: for expample, CREATE DATABASE (name)
-run the file "digiDB.sql" to create tables and insert data.
+run the file "digi_solutions_db.sql" to create tables and insert data.
 finally assign database and table privileges to the user
 # Run the project
 
