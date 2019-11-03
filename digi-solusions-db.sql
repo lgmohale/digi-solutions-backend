@@ -13,15 +13,12 @@ CREATE TABLE course(
     course_id BIGSERIAL NOT NULL PRIMARY KEY,
     course_name VARCHAR (150) NOT NULL,
     course_aps VARCHAR (150) NOT NULL,
-    course_department VARCHAR (150) NOT NULL,
     course_faculty VARCHAR (150) NOT NULL,
-    course_email VARCHAR (150) NOT NULL,
-    course_number VARCHAR (150) NOT NULL,
+    campus_name VARCHAR (150) NOT NULL,
     university_name VARCHAR (150) NOT NULL,
     university_email VARCHAR (150) NOT NULL,
     university_number VARCHAR (150) NOT NULL,
     university_website VARCHAR (150) NOT NULL,
-    campus_name VARCHAR (150) NOT NULL,
     created_at DATE,
     updated_at DATE
 );

@@ -2,6 +2,7 @@ const express = require('express');
 const route = express.Router();
 const bcrypt = require('bcrypt');
 var db = require('../model');
+var nodemailer = require('nodemailer');
 
 // super admin adding admin
 route.post('/add', (req, res) =>{
@@ -27,6 +28,28 @@ route.post('/add', (req, res) =>{
                         res.json({
                             message: 'new user successfully registered'
                         })
+                        var transporter = nodemailer.createTransport({
+                            service: 'gmail',
+                            auth: {
+                                   user: 'lucas@eldoenergy.com',
+                                   pass: 'VexedDought@201314599'
+                               }
+                           });
+                           const mailOptions = {
+                            from: 'lucas@eldoenergy.com',
+                            to: person_email,
+                            subject: 'Registration confirmed',
+                            html: `<h3>Welcome ${person_name} </h3>
+                                    <p>We could like to welcome in Gigi-Solutions family</p>
+                                    <p>Regards</p>
+                                    <p>Gigi-Solutions team</p>`
+                          };
+                          transporter.sendMail(mailOptions, function (err, info) {
+                            if(err)
+                              console.log(err)
+                            else
+                              console.log(info);
+                         });
                         console.log('New user: ', admin)
                     })
                     .catch(err =>{
