@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+var cors = require('cors')
 const admin = require('./routes/admin');
 const course = require('./routes/course');
-var app = express();
 
+const app = express();
+
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

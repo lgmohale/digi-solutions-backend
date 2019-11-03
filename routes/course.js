@@ -46,11 +46,11 @@ route.get('/course', (req, res) =>{
 })
 
 //find courses based on the aps
-route.get('/search', (req, res) =>{
+route.post('/search', (req, res) =>{
 
     let { aps_score } = req.body;
 
-    db.findAll({ where: { course_aps: { [Op.gte]:aps_score} } })
+    db.findAll({ where: { course_aps: { [Op.lte]:aps_score} } })
     .then(results => {
         res.send(results);
         console.log(results)
@@ -63,6 +63,7 @@ route.get('/search', (req, res) =>{
 //delete course form the databse
 route.delete('/delete', (req, res) =>{
     //do some stuff here
+
     const { id } = req.body
 
     db.destroy({ where: {course_id: id}})
