@@ -31,8 +31,8 @@ route.post('/add', (req, res) =>{
                         var transporter = nodemailer.createTransport({
                             service: 'gmail',
                             auth: {
-                                   user: 'lucas@eldoenergy.com',
-                                   pass: 'VexedDought@201314599'
+                                   user: 'email',
+                                   pass: 'password'
                                }
                            });
                            const mailOptions = {
